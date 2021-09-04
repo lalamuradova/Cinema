@@ -15,7 +15,9 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Canvas >
-
+                <Border Height="40" Width="40" Canvas.Top="270" Canvas.Left="70" >
+                   <Image Source="/icons/play.png" /> 
+                </Border>
                 <Image x:Name="image2" Canvas.Top="110" Canvas.Left="20" Panel.ZIndex="1" Stretch="Fill" Width="150" Height="200" Source="/icons/image2.jpg"></Image>
                 <Image  Canvas.Top="0" Canvas.Left="0" Width="495" Stretch="Fill" Height="200" Source="/icons/image1.jpg"   x:Name="BackroundImage" ></Image>
             <StackPanel Canvas.Right="10"  Height="30"  Orientation="Horizontal">
@@ -24,13 +26,13 @@
             </StackPanel>
                 <StackPanel Canvas.Top="200" Canvas.Left="165" Width="330" Height="120">
                     <TextBlock x:Name="TitleTextBlock" Padding="20,10,0,0" FontSize="20" FontWeight="Bold" >Interstellar</TextBlock>
-                    <TextBlock x:Name="GenreTxtBlock" Padding="20,10,0,0" FontSize="12" FontWeight="SemiBold" Foreground="DarkSlateGray" >Action | Adventure | Fantasy </TextBlock>
-                    <TextBlock x:Name="YearTxtBlock" Padding="20,10,0,0" FontSize="12" FontWeight="SemiBold" Foreground="DarkSlateGray" > 27 May 2016 USA <TextBlock x:Name="timeTxtBlock" Foreground="LightSlateGray" >2h 24 min</TextBlock></TextBlock>
+                    <TextBlock x:Name="GenreTxtBlock" Style="{StaticResource TextBlockStyle}" >Action | Adventure | Fantasy </TextBlock>
+                    <TextBlock x:Name="YearTxtBlock"  Style="{StaticResource TextBlockStyle}" > 27 May 2016 USA <TextBlock x:Name="timeTxtBlock" Foreground="LightSlateGray" >2h 24 min</TextBlock></TextBlock>
                     <StackPanel Margin="0,5,0,0" Orientation="Horizontal" >
-                        <TextBlock Padding="20,5,0,0" FontSize="12" FontWeight="SemiBold" Foreground="LightSlateGray" >7.5 / 10</TextBlock>
-                        <Border Margin="5,5,0,0" Height="15" Width="30" Background="Orange" CornerRadius="8" ></Border>
-                        <Border Margin="5,5,0,0" Height="15" Width="30" Background="DeepSkyBlue" CornerRadius="8" ></Border>
-                        <Border Margin="5,5,0,0" Height="15" Width="30" Background="SpringGreen" CornerRadius="8" ></Border>
+                        <TextBlock  Style="{StaticResource TextBlockStyle}" Foreground="LightSlateGray" >7.5 / 10</TextBlock>
+                        <Border Style="{StaticResource BorderStyle2}" Background="Orange" ></Border>
+                        <Border Style="{StaticResource BorderStyle2}" Background="DeepSkyBlue"  ></Border>
+                        <Border Style="{StaticResource BorderStyle2}" Background="SpringGreen"  ></Border>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Canvas.Top="310"  Width="495" Height="65" >
@@ -50,22 +52,22 @@
         </Grid>
         <Grid Grid.Row="1">
             <Canvas>
-                <ComboBox Foreground="DarkSlateGray" Canvas.Left="10" Canvas.Top="10"  Width="220" Height="40" x:Name="MallCombobox" FontSize="18" >                    
+                <ComboBox Canvas.Left="10" Canvas.Top="10"  x:Name="MallCombobox" Style="{StaticResource ComboboxStyle}" >                    
                     <ComboBoxItem Content="Metro Park" IsSelected="True"></ComboBoxItem>
                     <ComboBoxItem Content="Park cinema"></ComboBoxItem>
                     <ComboBoxItem Content="28 cinema"></ComboBoxItem>
                 </ComboBox>
-                <ComboBox Foreground="DarkSlateGray"  Canvas.Top="10" Canvas.Right="20"  Width="220" Height="40" x:Name="FilmTypeCombobox" FontSize="18" >
+                <ComboBox Canvas.Top="10" Canvas.Right="20"  x:Name="FilmTypeCombobox" Style="{StaticResource ComboboxStyle}" >
                     <ComboBoxItem Content="IMAX,3D" IsSelected="True"></ComboBoxItem>
                     <ComboBoxItem Content="2D"></ComboBoxItem>
                     <ComboBoxItem Content="4D"></ComboBoxItem>
                 </ComboBox>
-                <ComboBox Foreground="DarkSlateGray" Canvas.Left="10" Canvas.Top="60"  Width="220" Height="40" x:Name="DateCombobox" FontSize="18" >
+                <ComboBox Canvas.Left="10" Canvas.Top="60" x:Name="DateCombobox" Style="{StaticResource ComboboxStyle}">
                     <ComboBoxItem Content="2,Sentyabr,2021" IsSelected="True"></ComboBoxItem>
                     <ComboBoxItem Content="4,Sentyabr,2021"></ComboBoxItem>
                     <ComboBoxItem Content="5,Sentyabr,2021"></ComboBoxItem>
                 </ComboBox>
-                <ComboBox Foreground="DarkSlateGray"  Canvas.Top="60" Canvas.Right="20"  Width="220" Height="40" x:Name="TimeCombobox" FontSize="18" >
+                <ComboBox Canvas.Top="60" Canvas.Right="20" x:Name="TimeCombobox" Style="{StaticResource ComboboxStyle}">
                     <ComboBoxItem Content="16:00" IsSelected="True"></ComboBoxItem>
                     <ComboBoxItem Content="18:00"></ComboBoxItem>
                     <ComboBoxItem Content="21:45"></ComboBoxItem>
@@ -78,146 +80,146 @@
                         <TextBlock Foreground="Transparent">A,1</TextBlock>                    
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,2</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,3</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,4</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,5</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,6</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,7</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">A,8</TextBlock>
                     </Border>                    
 
                 </WrapPanel>
                 <UniformGrid  Height="240" Width="240" Margin="30,75,0,0" >
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,1</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,2</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,3</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,4</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,5</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,6</TextBlock>
+                    </Border>
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,7</TextBlock>
+                    </Border>
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,8</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,9</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,10</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,11</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,12</TextBlock>
+                    </Border>
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,13</TextBlock>
+                    </Border>
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,14</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,15</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,16</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
-                    </Border>
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,17</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,18</TextBlock>
+                    </Border>
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,19</TextBlock>
+                    </Border>
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,20</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,21</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,22</TextBlock>
                     </Border>
 
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,23</TextBlock>
+                    </Border>
+
+                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">B,24</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">B,25</TextBlock>
                     </Border>
                 </UniformGrid>
 
                 <WrapPanel Orientation="Horizontal"   Height="200" Width="80" Margin="20,40,0,0">
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,1</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,2</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,3</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,4</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,5</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,6</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,7</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>
+                        <TextBlock Foreground="Transparent">C,8</TextBlock>
                     </Border>
 
                 </WrapPanel>                
@@ -229,7 +231,7 @@
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"   Height="35" Width="190" Margin="0,345,10,10" >
-                <Button Width="190" Height="35" FontSize="20" Foreground="White" Background="SpringGreen" >CHECKHOUT</Button>          
+                <Button x:Name="CheckHoutBtn" Width="190" Height="35" FontSize="20" Foreground="White" Background="SpringGreen" >CHECKHOUT</Button>          
             </StackPanel>
         </Grid>
     </Grid>
