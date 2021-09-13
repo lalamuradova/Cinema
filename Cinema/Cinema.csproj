@@ -96,7 +96,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DataBase.cs" />
+    <Compile Include="Model\Movie.cs" />
+    <Compile Include="Model\Seat.cs" />
     <Compile Include="Pdf\PDF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

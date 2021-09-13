@@ -14,22 +14,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Canvas >                
-              <Image Panel.ZIndex="2" Stretch="Fill" Height="50" Width="50" Canvas.Top="270" Canvas.Left="70"  Source="/icons/play.png" /> 
-              <Image x:Name="image2" Canvas.Top="100" Canvas.Left="20" Panel.ZIndex="1" Stretch="Fill" Width="150" Height="200" Source="/icons/image2.jpg"></Image>
+            <Canvas >
+                <Image Panel.ZIndex="2" Stretch="Fill" Height="50" Width="50" Canvas.Top="270" Canvas.Left="70"  Source="/icons/play.png" />
+                <Image x:Name="image2" Canvas.Top="100" Canvas.Left="20" Panel.ZIndex="1" Stretch="Fill" Width="150" Height="200" Source="/icons/image2.jpg"></Image>
                 <Image  Canvas.Top="0" Canvas.Left="0" Width="495" Stretch="Fill" Height="200" Source="/icons/image1.jpg"   x:Name="BackroundImage" ></Image>
-            <StackPanel Canvas.Right="10"  Height="30"  Orientation="Horizontal">
-                <TextBox  Opacity="0.3"   BorderBrush="Transparent" Background="White" Name="SearchTxtBox"  Foreground="DarkSlateGray" FontSize="16" Width="420" Height="50"  ></TextBox>
-               <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" Source="/icons/search.png" Width="50" />               
-            </StackPanel>
+                <StackPanel Canvas.Right="10"  Height="30"  Orientation="Horizontal">
+                    <TextBox  Opacity="0.3"   BorderBrush="Transparent" Background="White" Name="SearchTxtBox"  Foreground="DarkSlateGray" FontSize="16" Width="420" Height="50"  ></TextBox>
+                    <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" Source="/icons/search.png" Width="50" />
+                </StackPanel>
                 <StackPanel Canvas.Top="200" Canvas.Left="165" Width="330" Height="120">
                     <TextBlock x:Name="TitleTextBlock" Padding="20,10,0,0" FontSize="20" FontWeight="Bold" >Interstellar</TextBlock>
-                    <TextBlock x:Name="GenreTxtBlock" Style="{StaticResource TextBlockStyle}" >Action | Adventure | Fantasy </TextBlock>
+                    <TextBlock x:Name="GenreTxtBlock" Style="{StaticResource TextBlockStyle}" >Action | Adventure | Fantasy</TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="YearTxtBlock"  Style="{StaticResource TextBlockStyle}" > 27 May 2016</TextBlock>
                         <TextBlock x:Name="timeTxtBlock" Foreground="LightSlateGray" Style="{StaticResource TextBlockStyle}">2h 24 min</TextBlock>
                     </StackPanel>
-                    
+
                     <StackPanel Margin="0,5,0,0" Orientation="Horizontal" >
                         <TextBlock x:Name="RatingTxtBlock"  Style="{StaticResource TextBlockStyle}" Foreground="LightSlateGray" >7.5 / 10</TextBlock>
                         <Border Style="{StaticResource BorderStyle2}" Background="Orange" >
@@ -60,7 +60,7 @@
         </Grid>
         <Grid Grid.Row="1">
             <Canvas>
-                <ComboBox Canvas.Left="10" Canvas.Top="10"  x:Name="MallCombobox" Style="{StaticResource ComboboxStyle}" >                    
+                <ComboBox Canvas.Left="10" Canvas.Top="10"  x:Name="MallCombobox" Style="{StaticResource ComboboxStyle}" >
                     <ComboBoxItem Content="Metro Park" IsSelected="True"></ComboBoxItem>
                     <ComboBoxItem Content="Park cinema"></ComboBoxItem>
                     <ComboBoxItem Content="28 cinema"></ComboBoxItem>
@@ -83,9 +83,9 @@
             </Canvas>
             <StackPanel Orientation="Horizontal">
 
-                <WrapPanel Orientation="Horizontal"   Height="200" Width="80" Margin="10,40,0,0">
-                    <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
-                        <TextBlock Foreground="Transparent">A,1</TextBlock>                    
+                <WrapPanel Name="panelA" Orientation="Horizontal"   Height="200" Width="80" Margin="10,40,0,0">
+                    <Border MouseDown="Border_MouseDown"   Style="{StaticResource BorderStyle}" >
+                        <TextBlock Foreground="Transparent">A,1</TextBlock>
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">A,2</TextBlock>
@@ -107,10 +107,10 @@
                     </Border>
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">A,8</TextBlock>
-                    </Border>                    
+                    </Border>
 
                 </WrapPanel>
-                <UniformGrid  Height="240" Width="240" Margin="30,75,0,0" >
+                <UniformGrid Name="panelB"  Height="240" Width="240" Margin="30,75,0,0" >
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">B,1</TextBlock>
                     </Border>
@@ -204,7 +204,7 @@
                     </Border>
                 </UniformGrid>
 
-                <WrapPanel Orientation="Horizontal"   Height="200" Width="80" Margin="20,40,0,0">
+                <WrapPanel Name="panelC" Orientation="Horizontal"   Height="200" Width="80" Margin="20,40,0,0">
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">C,1</TextBlock>
                     </Border>
@@ -230,16 +230,16 @@
                         <TextBlock Foreground="Transparent">C,8</TextBlock>
                     </Border>
 
-                </WrapPanel>                
-                
+                </WrapPanel>
+
             </StackPanel>
             <StackPanel Orientation="Horizontal"   Height="40" Width="120" Margin="0,320,350,0" >
                 <Label FontSize="18" FontWeight="Bold"  Height="30" Margin="0,5,0,0">Total:</Label>
                 <TextBlock x:Name="TotalTxtBlock" Height="30" FontSize="26" FontWeight="Bold" Foreground="SpringGreen" >0 $</TextBlock>
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"   Height="35" Width="190" Margin="0,345,10,10" >
-                <Button Click="CheckHoutBtn_Click" x:Name="CheckHoutBtn" Width="190" Height="35" FontSize="20" Foreground="White" Background="SpringGreen" >CHECKHOUT</Button>          
+                <Button Click="CheckHoutBtn_Click" x:Name="CheckHoutBtn" Width="190" Height="35" FontSize="20" Foreground="White" Background="SpringGreen" >CHECKHOUT</Button>
             </StackPanel>
         </Grid>
     </Grid>
