@@ -57,8 +57,15 @@
                             Writers</TextBlock></TextBlock>
                 </StackPanel>
             </Canvas>
-        </Grid>
-        <Grid Grid.Row="1">
+        </Grid>        
+            <Grid Grid.Row="1">
+            <ScrollViewer MaxHeight="200" 
+              Width="auto" 
+              HorizontalScrollBarVisibility="Disabled"
+              VerticalScrollBarVisibility="Auto"
+                     >
+               
+            <StackPanel>
             <Canvas>
                 <ComboBox Canvas.Left="10" Canvas.Top="10"  x:Name="MallCombobox" Style="{StaticResource ComboboxStyle}" >
                     <ComboBoxItem Content="Metro Park" IsSelected="True"></ComboBoxItem>
@@ -80,10 +87,12 @@
                     <ComboBoxItem Content="18:00"></ComboBoxItem>
                     <ComboBoxItem Content="21:45"></ComboBoxItem>
                 </ComboBox>
-            </Canvas>
-            <StackPanel Orientation="Horizontal">
+            </Canvas>  
+            
 
-                <WrapPanel Name="panelA" Orientation="Horizontal"   Height="200" Width="80" Margin="10,40,0,0">
+            <StackPanel Orientation="Horizontal" Height="340">
+
+                <WrapPanel Name="panelA" Orientation="Horizontal"   Height="200" Width="80" Margin="10,70,0,0">
                     <Border MouseDown="Border_MouseDown"   Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">A,1</TextBlock>
                     </Border>
@@ -110,7 +119,7 @@
                     </Border>
 
                 </WrapPanel>
-                <UniformGrid Name="panelB"  Height="240" Width="240" Margin="30,75,0,0" >
+                <UniformGrid Name="panelB"  Height="230" Width="240" Margin="30,100,0,0" >
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">B,1</TextBlock>
                     </Border>
@@ -203,8 +212,8 @@
                         <TextBlock Foreground="Transparent">B,25</TextBlock>
                     </Border>
                 </UniformGrid>
-
-                <WrapPanel Name="panelC" Orientation="Horizontal"   Height="200" Width="80" Margin="20,40,0,0">
+                
+                <WrapPanel Name="panelC" Orientation="Horizontal"   Height="200" Width="80" Margin="20,70,0,0">
                     <Border MouseDown="Border_MouseDown"  Style="{StaticResource BorderStyle}" >
                         <TextBlock Foreground="Transparent">C,1</TextBlock>
                     </Border>
@@ -233,14 +242,22 @@
                 </WrapPanel>
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal"   Height="40" Width="120" Margin="0,320,350,0" >
+
+                <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"   Height="40" Width="200"  >
                 <Label FontSize="18" FontWeight="Bold"  Height="30" Margin="0,5,0,0">Total:</Label>
-                <TextBlock x:Name="TotalTxtBlock" Height="30" FontSize="26" FontWeight="Bold" Foreground="SpringGreen" >0 $</TextBlock>
+                <TextBlock x:Name="TotalTxtBlock"  Height="30" FontSize="26" FontWeight="Bold" Foreground="SpringGreen" >0 $</TextBlock>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"   Height="35" Width="190" Margin="0,345,10,10" >
+            <StackPanel   Height="35" Width="190" Margin="80,0,0,0" >
                 <Button Click="CheckHoutBtn_Click" x:Name="CheckHoutBtn" Width="190" Height="35" FontSize="20" Foreground="White" Background="SpringGreen" >CHECKHOUT</Button>
             </StackPanel>
+
+
+               </StackPanel>
+            </StackPanel>
+                    </ScrollViewer>
         </Grid>
+        
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using Cinema.Model;
+using Cinema.Pdf;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,8 @@ namespace Cinema
         public string Rating { get; set; }
         public dynamic Data { get; set; }
         public dynamic SingleData { get; set; }
-
+        public double Price { set; get; } = 5.50;
+        public double TotalPrice { get; set; } = 0;
 
         HttpClient httpclient = new HttpClient();
         public MainWindow()
@@ -115,40 +117,24 @@ namespace Cinema
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            
             var border = sender as Border;
 
+           
             if (border.Background == Brushes.LightGray)
             {
                 border.Background = Brushes.Pink;
             }
-            else if (border.Background == Brushes.Red)
+            else 
             {
-                MessageBox.Show("The seat is full");
+                MessageBox.Show("The seat is full");              
             }
-            else
-            {
-                border.Background = Brushes.LightGray;
-            }
-            var txtblock = border.Child as TextBlock;
+            
+           
             
         }
 
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            GetMovie();
-            ++Index;
-            GetMovie();
-        }
-
-
-        public SolidColorBrush ChangeColor(string color)
-        {
-
-            // in WPF you can use a BrushConverter
-            SolidColorBrush redBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
-            return redBrush;
-        }
-        private void CheckHoutBtn_Click(object sender, RoutedEventArgs e)
+        public void ReadJson()
         {
             SearchTxtBox.Text = SearchTxtBox.Text.ToLower();
             if (File.Exists(SearchTxtBox.Text + ".json"))
@@ -162,48 +148,141 @@ namespace Cinema
 
                     border.Background = ChangeColor(movie.Seats[index].Color);
 
-
                     index++;
-                }
-            }
-            else
-            {
-
-                // CreatePDF()
-                #region WriteJson
-                List<Seat> seats = new List<Seat>();
-
-                foreach (var item in panelA.Children)
-                {
-                    var border = item as Border;
-                    var textBlock = border.Child as TextBlock;
-                    Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
-                    seats.Add(seat);
                 }
                 foreach (var item in panelB.Children)
                 {
                     var border = item as Border;
-                    var textBlock = border.Child as TextBlock;
-                    Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
-                    seats.Add(seat);
+
+                    border.Background = ChangeColor(movie.Seats[index].Color);
+
+
+                    index++;
                 }
                 foreach (var item in panelC.Children)
                 {
                     var border = item as Border;
-                    var textBlock = border.Child as TextBlock;
-                    Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
-                    seats.Add(seat);
-                }
 
-                Movie movie = new Movie
+                    border.Background = ChangeColor(movie.Seats[index].Color);
+
+
+                    index++;
+                }
+                TimeCombobox.Text = movie.Time;
+                DateCombobox.Text = movie.Date;
+                MallCombobox.Text = movie.Location;
+            }
+        }
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GetMovie();
+            ++Index;
+            GetMovie();
+            ReadJson();
+        }
+
+
+        public SolidColorBrush ChangeColor(string color)
+        {
+
+            // in WPF you can use a BrushConverter
+            SolidColorBrush redBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
+            return redBrush;
+        }
+
+        public void ChangeColorRed()
+        {
+            foreach (var item in panelA.Children)
+            {
+                var border = item as Border;
+
+                if (border.Background == Brushes.Pink)
                 {
-                    MovieName = SearchTxtBox.Text,
-                    Seats = seats
-                };
-                FileHelper.FileHelper.JsonSerializationMovie(movie);
+                    TotalPrice += Price;
+                    border.Background = Brushes.Red;
+                }               
+                else
+                {
+                    border.Background = border.Background;
+                }
+            }
+            foreach (var item in panelB.Children)
+            {
+                var border = item as Border;
+
+                if (border.Background == Brushes.Pink)
+                {
+                    TotalPrice += Price;
+                    border.Background = Brushes.Red;
+                }
+                else
+                {
+                    border.Background = border.Background;
+                }
+            }
+            foreach (var item in panelC.Children)
+            {
+                var border = item as Border;
+
+                if (border.Background == Brushes.Pink)
+                {
+                    TotalPrice += Price;
+                    border.Background = Brushes.Red;
+                }
+                else
+                {
+                    border.Background = border.Background;
+                }
+            }
+        }
+
+        public void WriteJson()
+        {
+            List<Seat> seats = new List<Seat>();
+
+            foreach (var item in panelA.Children)
+            {
+                var border = item as Border;
+                var textBlock = border.Child as TextBlock;
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
+                seats.Add(seat);
+            }
+            foreach (var item in panelB.Children)
+            {
+                var border = item as Border;
+                var textBlock = border.Child as TextBlock;
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
+                seats.Add(seat);
+            }
+            foreach (var item in panelC.Children)
+            {
+                var border = item as Border;
+                var textBlock = border.Child as TextBlock;
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
+                seats.Add(seat);
             }
 
-            #endregion
+            Movie movie = new Movie
+            {
+                MovieName = SearchTxtBox.Text,
+                Time = TimeCombobox.Text,
+                Date= DateCombobox.Text,
+                Location= MallCombobox.Text,
+                Seats = seats
+            };
+            FileHelper.FileHelper.JsonSerializationMovie(movie);
+
+            TotalTxtBlock.Text = TotalPrice.ToString() + " $";
+
+            //CreatePDF(movie, SearchTxtBox.Text, TotalPrice.ToString());
+        }
+        private void CheckHoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeColorRed();
+
+            WriteJson();
+            MessageBox.Show("Enjoy watching");
+            TotalPrice = 0;
         }
     }
 

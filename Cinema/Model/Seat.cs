@@ -11,12 +11,10 @@ namespace Cinema.Model
         public Seat(string color, string numbers, double price)
         {
             Color = color;
-            Numbers = numbers;
-            Price = price;
+            Numbers = numbers;           
         }
 
         public string Color { get; set; }
-        public string Numbers { get; set; }
-        public double Price { get; set; }
+        public string Numbers { get; set; }       
     }
 }
