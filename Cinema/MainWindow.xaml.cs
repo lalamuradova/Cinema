@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +36,7 @@ namespace Cinema
         public dynamic SingleData { get; set; }
         public double Price { set; get; } = 5.50;
         public double TotalPrice { get; set; } = 0;
+       public List<Seat> seatspdf { get; set; } = new List<Seat>();
 
         HttpClient httpclient = new HttpClient();
         public MainWindow()
@@ -120,19 +122,24 @@ namespace Cinema
             
             var border = sender as Border;
 
-            if ((border.Background as SolidColorBrush) == Brushes.Pink)
+            if ((border.Background as SolidColorBrush) == Brushes.Red)
             {
-                MessageBox.Show("The seat is full");              
+                MessageBox.Show("The seat is full");            
 
             }
             else
             {
+                TotalPrice += Price;
+                TotalTxtBlock.Text = TotalPrice.ToString();
+                border.Background = Brushes.Red;
 
-                border.Background = Brushes.Pink;
+                var textBlock = border.Child as TextBlock;
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text);
+                seatspdf.Add(seat);
             }
-            
-           
-            
+
+
+
         }
 
         public void ReadJson()
@@ -213,51 +220,7 @@ namespace Cinema
             return redBrush;
         }
 
-        public void ChangeColorRed()
-        {
-            //foreach (var item in panelA.Children)
-            //{
-            //    var border = item as Border;
-
-            //    if (border.Background == Brushes.Pink)
-            //    {
-            //        TotalPrice += Price;
-            //        border.Background = Brushes.Red;
-            //    }               
-            //    else
-            //    {
-            //        border.Background = border.Background;
-            //    }
-            //}
-            //foreach (var item in panelB.Children)
-            //{
-            //    var border = item as Border;
-
-            //    if (border.Background == Brushes.Pink)
-            //    {
-            //        TotalPrice += Price;
-            //        border.Background = Brushes.Red;
-            //    }
-            //    else
-            //    {
-            //        border.Background = border.Background;
-            //    }
-            //}
-            //foreach (var item in panelC.Children)
-            //{
-            //    var border = item as Border;
-
-            //    if (border.Background == Brushes.Pink)
-            //    {
-            //        TotalPrice += Price;
-            //        border.Background = Brushes.Red;
-            //    }
-            //    else
-            //    {
-            //        border.Background = border.Background;
-            //    }
-            //}
-        }
+        
 
         public void WriteJson()
         {
@@ -267,21 +230,21 @@ namespace Cinema
             {
                 var border = item as Border;
                 var textBlock = border.Child as TextBlock;
-                Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text);
                 seats.Add(seat);
             }
             foreach (var item in panelB.Children)
             {
                 var border = item as Border;
                 var textBlock = border.Child as TextBlock;
-                Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text);
                 seats.Add(seat);
             }
             foreach (var item in panelC.Children)
             {
                 var border = item as Border;
                 var textBlock = border.Child as TextBlock;
-                Seat seat = new Seat(border.Background.ToString(), textBlock.Text, 10);
+                Seat seat = new Seat(border.Background.ToString(), textBlock.Text);
                 seats.Add(seat);
             }
 
@@ -297,14 +260,14 @@ namespace Cinema
 
             TotalTxtBlock.Text = TotalPrice.ToString() + " $";
 
-            //CreatePDF(movie, SearchTxtBox.Text, TotalPrice.ToString());
+            string filename = SearchTxtBox.Text + Index.ToString()+".pdf";
+            PDF.CreatePDF(movie, filename, TotalPrice.ToString(),seatspdf);
+            seatspdf = null;
         }
         private void CheckHoutBtn_Click(object sender, RoutedEventArgs e)
         {
-            ChangeColorRed();
-
+            MessageBox.Show("Enjoy watching");            
             WriteJson();
-            MessageBox.Show("Enjoy watching");
             TotalPrice = 0;
         }
     }

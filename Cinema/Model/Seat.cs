@@ -8,7 +8,7 @@ namespace Cinema.Model
 {
     public class Seat
     {
-        public Seat(string color, string numbers, double price)
+        public Seat(string color, string numbers)
         {
             Color = color;
             Numbers = numbers;           
