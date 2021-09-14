@@ -120,14 +120,15 @@ namespace Cinema
             
             var border = sender as Border;
 
-           
-            if (border.Background == Brushes.LightGray)
-            {
-                border.Background = Brushes.Pink;
-            }
-            else 
+            if ((border.Background as SolidColorBrush) == Brushes.Pink)
             {
                 MessageBox.Show("The seat is full");              
+
+            }
+            else
+            {
+
+                border.Background = Brushes.Pink;
             }
             
            
@@ -172,6 +173,28 @@ namespace Cinema
                 DateCombobox.Text = movie.Date;
                 MallCombobox.Text = movie.Location;
             }
+            else
+            {
+                foreach (var item in panelA.Children)
+                {
+                    var border = item as Border;
+
+                    border.Background = Brushes.LightGray;
+                }
+                foreach (var item in panelB.Children)
+                {
+                    var border = item as Border;
+
+                    border.Background = Brushes.LightGray;
+                }
+                foreach (var item in panelC.Children)
+                {
+                    var border = item as Border;
+
+                    border.Background = Brushes.LightGray;
+                }
+
+            }
         }
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -192,48 +215,48 @@ namespace Cinema
 
         public void ChangeColorRed()
         {
-            foreach (var item in panelA.Children)
-            {
-                var border = item as Border;
+            //foreach (var item in panelA.Children)
+            //{
+            //    var border = item as Border;
 
-                if (border.Background == Brushes.Pink)
-                {
-                    TotalPrice += Price;
-                    border.Background = Brushes.Red;
-                }               
-                else
-                {
-                    border.Background = border.Background;
-                }
-            }
-            foreach (var item in panelB.Children)
-            {
-                var border = item as Border;
+            //    if (border.Background == Brushes.Pink)
+            //    {
+            //        TotalPrice += Price;
+            //        border.Background = Brushes.Red;
+            //    }               
+            //    else
+            //    {
+            //        border.Background = border.Background;
+            //    }
+            //}
+            //foreach (var item in panelB.Children)
+            //{
+            //    var border = item as Border;
 
-                if (border.Background == Brushes.Pink)
-                {
-                    TotalPrice += Price;
-                    border.Background = Brushes.Red;
-                }
-                else
-                {
-                    border.Background = border.Background;
-                }
-            }
-            foreach (var item in panelC.Children)
-            {
-                var border = item as Border;
+            //    if (border.Background == Brushes.Pink)
+            //    {
+            //        TotalPrice += Price;
+            //        border.Background = Brushes.Red;
+            //    }
+            //    else
+            //    {
+            //        border.Background = border.Background;
+            //    }
+            //}
+            //foreach (var item in panelC.Children)
+            //{
+            //    var border = item as Border;
 
-                if (border.Background == Brushes.Pink)
-                {
-                    TotalPrice += Price;
-                    border.Background = Brushes.Red;
-                }
-                else
-                {
-                    border.Background = border.Background;
-                }
-            }
+            //    if (border.Background == Brushes.Pink)
+            //    {
+            //        TotalPrice += Price;
+            //        border.Background = Brushes.Red;
+            //    }
+            //    else
+            //    {
+            //        border.Background = border.Background;
+            //    }
+            //}
         }
 
         public void WriteJson()
