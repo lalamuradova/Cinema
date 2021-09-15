@@ -80,7 +80,6 @@ namespace Cinema
                     {
                         Genre2 += item;
                     }
-
                 }
 
                 GenreTxtBlock.Text = Genre2;
