@@ -59,11 +59,11 @@
             </Canvas>
         </Grid>        
             <Grid Grid.Row="1">
-            <ScrollViewer MaxHeight="200" 
+            <!--<ScrollViewer MaxHeight="200" 
               Width="auto" 
               HorizontalScrollBarVisibility="Disabled"
               VerticalScrollBarVisibility="Auto"
-                     >
+                     >-->
                
             <StackPanel>
             <Canvas>
@@ -256,7 +256,7 @@
 
                </StackPanel>
             </StackPanel>
-                    </ScrollViewer>
+                    <!--</ScrollViewer>-->
         </Grid>
         
     </Grid>
